@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economic Crisis Pattern Analyzer | Financial Times Style</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="ft-header">
+            <div class="ft-masthead">
+                <h1 class="ft-title">Economic Crisis Pattern Analyzer</h1>
+                <p class="ft-subtitle">Advanced Risk Assessment for Global Economies</p>
+            </div>
+            
+            <!-- Category Filters -->
+            <div class="category-filters">
+                <button class="filter-btn active" data-category="all">All Countries</button>
+                <button class="filter-btn" data-category="G7">G7</button>
+                <button class="filter-btn" data-category="BRICS">BRICS</button>
+                <button class="filter-btn" data-category="High Income">High Income</button>
+                <button class="filter-btn" data-category="Upper Middle Income">Upper Middle</button>
+                <button class="filter-btn" data-category="Lower Middle Income">Lower Middle</button>
+                <button class="filter-btn" data-category="NATO">NATO</button>
+                <button class="filter-btn" data-category="EU">EU</button>
+            </div>
+            
+            <!-- Country Selector -->
+            <div class="country-selector">
+                <label for="country-search" class="country-label">Search & Select Country:</label>
+                <div class="search-dropdown">
+                    <input type="text" id="country-search" class="country-search" placeholder="Type to search countries (e.g., Nigeria)..." autocomplete="off">
+                    <div id="country-dropdown" class="country-dropdown-list hidden">
+                        <!-- Countries will be populated by JavaScript -->
+                    </div>
+                </div>
+                <div class="selected-country">
+                    <span id="selected-flag">🇫🇷</span>
+                    <span id="selected-name">France</span>
+                </div>
+            </div>
+            
+            <!-- Navigation -->
+            <nav class="ft-nav">
+                <button class="nav-btn active" data-view="overview">Crisis Overview</button>
+                <button class="nav-btn" data-view="spending">Spending Analysis</button>
+                <button class="nav-btn" data-view="risk">Risk Assessment</button>
+                <button class="nav-btn" data-view="comparison">Multi-Country Comparison</button>
+                <button class="nav-btn" data-view="pattern">Pattern Framework</button>
+                <button class="nav-btn" data-view="warning">Early Warning System</button>
+            </nav>
+        </header>
+
+        <!-- Crisis Overview -->
+        <div id="overview-view" class="view-section active">
+            <!-- Key Metrics -->
+            <div class="metrics-dashboard">
+                <div class="metric-card" id="deficit-card">
+                    <h3>Budget Deficit 2024</h3>
+                    <div class="metric-value" id="deficit-value">-</div>
+                    <div class="metric-indicator" id="deficit-indicator">-</div>
+                </div>
+                <div class="metric-card" id="debt-card">
+                    <h3>Public Debt</h3>
+                    <div class="metric-value" id="debt-value">-</div>
+                    <div class="metric-indicator" id="debt-indicator">-</div>
+                </div>
+                <div class="metric-card" id="spending-card">
+                    <h3>Public Spending</h3>
+                    <div class="metric-value" id="spending-value">-</div>
+                    <div class="metric-indicator" id="spending-indicator">-</div>
+                </div>
+                <div class="metric-card" id="political-card">
+                    <h3>Political Stability</h3>
+                    <div class="metric-value" id="political-value">-</div>
+                    <div class="metric-indicator" id="political-indicator">-</div>
+                </div>
+            </div>
+
+            <!-- Timeline Chart -->
+            <div class="ft-card">
+                <h2 class="section-title">Economic Timeline (2019-2024)</h2>
+                <div class="chart-container" style="position: relative; height: 400px;">
+                    <canvas id="timeline-chart"></canvas>
+                </div>
+            </div>
+
+            <!-- Crisis Events -->
+            <div class="ft-card">
+                <h2 class="section-title">Crisis Events Timeline</h2>
+                <div id="crisis-events" class="events-timeline">
+                    <!-- Events will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Spending Analysis -->
+        <div id="spending-view" class="view-section">
+            <div class="ft-card">
+                <h2 class="section-title">Government Spending Breakdown</h2>
+                <div class="chart-container" style="position: relative; height: 500px;">
+                    <canvas id="spending-chart"></canvas>
+                </div>
+            </div>
+            
+            <div class="ft-card">
+                <h2 class="section-title">Spending Analysis</h2>
+                <div id="spending-breakdown" class="spending-grid">
+                    <!-- Spending details will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Risk Assessment -->
+        <div id="risk-view" class="view-section">
+            <div class="dashboard-grid">
+                <div class="ft-card">
+                    <h2 class="section-title">Multi-Dimensional Risk Profile</h2>
+                    <div class="chart-container" style="position: relative; height: 400px;">
+                        <canvas id="radar-chart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="ft-card">
+                    <h2 class="section-title">Overall Risk Assessment</h2>
+                    <div class="risk-summary">
+                        <div class="risk-score-display">
+                            <div id="overall-risk-score" class="risk-score">-</div>
+                            <div class="risk-label">Overall Risk Score</div>
+                        </div>
+                        <div id="risk-factors" class="risk-factors-list">
+                            <!-- Risk factors will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Multi-Country Comparison -->
+        <div id="comparison-view" class="view-section">
+            <div class="ft-card">
+                <h2 class="section-title">Multi-Country Risk Comparison</h2>
+                <div class="comparison-controls">
+                    <div class="country-selector-grid">
+                        <h3>Select Countries to Compare (Max 6):</h3>
+                        <div id="country-checkboxes" class="country-checkboxes">
+                            <!-- Country checkboxes will be populated by JavaScript -->
+                        </div>
+                        <button id="compare-selected" class="btn btn--primary">Update Comparison</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comparison-charts-grid">
+                <div class="ft-card">
+                    <h3 class="section-title">Risk Scores Comparison</h3>
+                    <div class="chart-container" style="position: relative; height: 350px;">
+                        <canvas id="comparison-risk-chart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="ft-card">
+                    <h3 class="section-title">Budget Deficit Trends</h3>
+                    <div class="chart-container" style="position: relative; height: 350px;">
+                        <canvas id="comparison-deficit-chart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="ft-card">
+                    <h3 class="section-title">Public Debt Levels</h3>
+                    <div class="chart-container" style="position: relative; height: 350px;">
+                        <canvas id="comparison-debt-chart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="ft-card">
+                    <h3 class="section-title">Political Stability Radar</h3>
+                    <div class="chart-container" style="position: relative; height: 350px;">
+                        <canvas id="comparison-political-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ft-card">
+                <h2 class="section-title">Selected Countries Comparison Metrics</h2>
+                <div id="comparison-metrics" class="comparison-metrics-grid">
+                    <!-- Comparison metrics will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Pattern Framework -->
+        <div id="pattern-view" class="view-section">
+            <div class="ft-card">
+                <h2 class="section-title">Crisis Pattern Framework</h2>
+                <div class="chart-container" style="position: relative; height: 400px;">
+                    <canvas id="pattern-chart"></canvas>
+                </div>
+            </div>
+            
+            <div class="ft-card">
+                <h2 class="section-title">Pattern Analysis Factors</h2>
+                <div class="pattern-factors">
+                    <div class="factor-item">
+                        <h4>Fiscal Deterioration (25%)</h4>
+                        <p>Budget deficits, debt trajectory, spending levels</p>
+                    </div>
+                    <div class="factor-item">
+                        <h4>Political Fragmentation (20%)</h4>
+                        <p>Government stability, coalition dynamics, reform capacity</p>
+                    </div>
+                    <div class="factor-item">
+                        <h4>Structural Rigidity (20%)</h4>
+                        <p>Labor market flexibility, pension systems, demographic pressures</p>
+                    </div>
+                    <div class="factor-item">
+                        <h4>External Pressure (15%)</h4>
+                        <p>EU procedures, credit ratings, market confidence</p>
+                    </div>
+                    <div class="factor-item">
+                        <h4>Reform Resistance (10%)</h4>
+                        <p>Social opposition, institutional barriers, implementation capacity</p>
+                    </div>
+                    <div class="factor-item">
+                        <h4>Market Confidence (10%)</h4>
+                        <p>Bond spreads, investor sentiment, credit access</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Early Warning System -->
+        <div id="warning-view" class="view-section">
+            <div class="ft-card">
+                <h2 class="section-title">Early Warning Indicators</h2>
+                <div id="warning-indicators" class="warning-grid">
+                    <!-- Warning indicators will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="ft-card">
+                <h2 class="section-title">Comparative Risk Levels</h2>
+                <div class="chart-container" style="position: relative; height: 300px;">
+                    <canvas id="warning-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="ft-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Data Sources</h4>
+                <ul>
+                    <li>International Monetary Fund (IMF)</li>
+                    <li>World Bank</li>
+                    <li>Organisation for Economic Co-operation and Development (OECD)</li>
+                    <li>European Central Bank (ECB)</li>
+                    <li>Federal Reserve</li>
+                    <li>National Statistical Offices</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Methodology</h4>
+                <p>Crisis indicators based on established early warning frameworks combining fiscal, political, and structural factors. Risk scores calculated using weighted composite indices.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Attribution</h4>
+                <p><strong>Analysis compiled by William Mbiena</strong></p>
+                <p class="disclaimer">For analytical purposes only. This analysis is intended for research and educational use.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Economic Crisis Pattern Analyzer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
