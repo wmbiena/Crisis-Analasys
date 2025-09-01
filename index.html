@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Economic Crisis Pattern Analyzer | Financial Times Style</title>
+    <title>Global Economic Crisis Pattern Analyzer | Financial Times Style</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -12,50 +12,79 @@
         <!-- Header -->
         <header class="ft-header">
             <div class="ft-masthead">
-                <h1 class="ft-title">Economic Crisis Pattern Analyzer</h1>
-                <p class="ft-subtitle">Advanced Risk Assessment for Global Economies</p>
+                <h1 class="ft-title">Global Economic Crisis Pattern Analyzer</h1>
+                <p class="ft-subtitle">Advanced Risk Assessment for 27 Major Economies</p>
             </div>
             
-            <!-- Category Filters -->
-            <div class="category-filters">
-                <button class="filter-btn active" data-category="all">All Countries</button>
-                <button class="filter-btn" data-category="G7">G7</button>
-                <button class="filter-btn" data-category="BRICS">BRICS</button>
-                <button class="filter-btn" data-category="High Income">High Income</button>
-                <button class="filter-btn" data-category="Upper Middle Income">Upper Middle</button>
-                <button class="filter-btn" data-category="Lower Middle Income">Lower Middle</button>
-                <button class="filter-btn" data-category="NATO">NATO</button>
-                <button class="filter-btn" data-category="EU">EU</button>
-            </div>
-            
-            <!-- Country Selector -->
-            <div class="country-selector">
-                <label for="country-search" class="country-label">Search & Select Country:</label>
-                <div class="search-dropdown">
-                    <input type="text" id="country-search" class="country-search" placeholder="Type to search countries (e.g., Nigeria)..." autocomplete="off">
-                    <div id="country-dropdown" class="country-dropdown-list hidden">
-                        <!-- Countries will be populated by JavaScript -->
+            <!-- Enhanced Country Selector -->
+            <div class="country-selector-enhanced">
+                <div class="selector-controls">
+                    <div class="country-selector">
+                        <label for="country-select" class="country-label">Select Country:</label>
+                        <div class="select-wrapper">
+                            <select id="country-select" class="country-dropdown">
+                                <!-- Countries will be populated by JavaScript -->
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Category Filters -->
+                    <div class="category-filters">
+                        <label class="filter-label">Filter by Category:</label>
+                        <div class="filter-buttons">
+                            <button class="filter-btn active" data-filter="all">All Countries</button>
+                            <button class="filter-btn" data-filter="G7">G7</button>
+                            <button class="filter-btn" data-filter="BRICS">BRICS</button>
+                            <button class="filter-btn" data-filter="High Income">High Income</button>
+                            <button class="filter-btn" data-filter="Upper Middle Income">Upper Middle</button>
+                            <button class="filter-btn" data-filter="Lower Middle Income">Lower Middle</button>
+                            <button class="filter-btn" data-filter="EU">EU</button>
+                            <button class="filter-btn" data-filter="NATO">NATO</button>
+                        </div>
                     </div>
                 </div>
-                <div class="selected-country">
-                    <span id="selected-flag">🇫🇷</span>
-                    <span id="selected-name">France</span>
+                
+                <!-- Search functionality -->
+                <div class="country-search">
+                    <input type="text" id="country-search" placeholder="Search countries..." class="search-input">
                 </div>
             </div>
             
             <!-- Navigation -->
             <nav class="ft-nav">
-                <button class="nav-btn active" data-view="overview">Crisis Overview</button>
-                <button class="nav-btn" data-view="spending">Spending Analysis</button>
-                <button class="nav-btn" data-view="risk">Risk Assessment</button>
-                <button class="nav-btn" data-view="comparison">Multi-Country Comparison</button>
-                <button class="nav-btn" data-view="pattern">Pattern Framework</button>
-                <button class="nav-btn" data-view="warning">Early Warning System</button>
+                <button class="nav-btn active" data-view="overview">Overview</button>
+                <button class="nav-btn" data-view="risk">Risk Analysis</button>
+                <button class="nav-btn" data-view="pattern">Pattern Recognition</button>
+                <button class="nav-btn" data-view="warning">Early Warning</button>
+                <button class="nav-btn" data-view="comparative">Comparative Analysis</button>
             </nav>
         </header>
 
         <!-- Crisis Overview -->
         <div id="overview-view" class="view-section active">
+            <!-- Country Header Card -->
+            <div class="ft-card country-info-card">
+                <div class="country-header">
+                    <div class="country-flag-name">
+                        <span id="country-flag" class="country-flag">🇫🇷</span>
+                        <h2 id="country-name" class="country-name">France</h2>
+                    </div>
+                    <div class="country-tags" id="country-tags">
+                        <!-- Tags will be populated by JavaScript -->
+                    </div>
+                </div>
+                <div class="country-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Region:</span>
+                        <span id="country-region" class="stat-value">Europe</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Income Level:</span>
+                        <span id="country-income" class="stat-value">High Income</span>
+                    </div>
+                </div>
+            </div>
+            
             <!-- Key Metrics -->
             <div class="metrics-dashboard">
                 <div class="metric-card" id="deficit-card">
@@ -80,6 +109,25 @@
                 </div>
             </div>
 
+            <!-- Crisis Events Timeline -->
+            <div class="ft-card">
+                <h2 class="section-title">Crisis Events Timeline (2019-2024)</h2>
+                <div class="timeline-container">
+                    <div class="timeline-years">
+                        <div class="timeline-year" data-year="2019">2019</div>
+                        <div class="timeline-year" data-year="2020">2020</div>
+                        <div class="timeline-year" data-year="2021">2021</div>
+                        <div class="timeline-year" data-year="2022">2022</div>
+                        <div class="timeline-year" data-year="2023">2023</div>
+                        <div class="timeline-year" data-year="2024">2024</div>
+                    </div>
+                    <div class="timeline-line"></div>
+                    <div id="crisis-timeline" class="crisis-timeline">
+                        <!-- Crisis events will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
             <!-- Timeline Chart -->
             <div class="ft-card">
                 <h2 class="section-title">Economic Timeline (2019-2024)</h2>
@@ -88,33 +136,21 @@
                 </div>
             </div>
 
-            <!-- Crisis Events -->
-            <div class="ft-card">
-                <h2 class="section-title">Crisis Events Timeline</h2>
-                <div id="crisis-events" class="events-timeline">
-                    <!-- Events will be populated by JavaScript -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Spending Analysis -->
-        <div id="spending-view" class="view-section">
+            <!-- Spending Breakdown -->
             <div class="ft-card">
                 <h2 class="section-title">Government Spending Breakdown</h2>
-                <div class="chart-container" style="position: relative; height: 500px;">
-                    <canvas id="spending-chart"></canvas>
-                </div>
-            </div>
-            
-            <div class="ft-card">
-                <h2 class="section-title">Spending Analysis</h2>
-                <div id="spending-breakdown" class="spending-grid">
-                    <!-- Spending details will be populated by JavaScript -->
+                <div class="spending-overview">
+                    <div class="chart-container" style="position: relative; height: 350px; width: 50%;">
+                        <canvas id="spending-chart"></canvas>
+                    </div>
+                    <div id="spending-breakdown" class="spending-grid">
+                        <!-- Spending details will be populated by JavaScript -->
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Risk Assessment -->
+        <!-- Risk Analysis -->
         <div id="risk-view" class="view-section">
             <div class="dashboard-grid">
                 <div class="ft-card">
@@ -131,68 +167,29 @@
                             <div id="overall-risk-score" class="risk-score">-</div>
                             <div class="risk-label">Overall Risk Score</div>
                         </div>
-                        <div id="risk-factors" class="risk-factors-list">
-                            <!-- Risk factors will be populated by JavaScript -->
+                        <div class="risk-details">
+                            <div class="risk-item">
+                                <span class="risk-item-label">Fiscal Health:</span>
+                                <span id="fiscal-health" class="risk-item-value">-</span>
+                            </div>
+                            <div class="risk-item">
+                                <span class="risk-item-label">Political Stability:</span>
+                                <span id="political-stability" class="risk-item-value">-</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Multi-Country Comparison -->
-        <div id="comparison-view" class="view-section">
+            
             <div class="ft-card">
-                <h2 class="section-title">Multi-Country Risk Comparison</h2>
-                <div class="comparison-controls">
-                    <div class="country-selector-grid">
-                        <h3>Select Countries to Compare (Max 6):</h3>
-                        <div id="country-checkboxes" class="country-checkboxes">
-                            <!-- Country checkboxes will be populated by JavaScript -->
-                        </div>
-                        <button id="compare-selected" class="btn btn--primary">Update Comparison</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="comparison-charts-grid">
-                <div class="ft-card">
-                    <h3 class="section-title">Risk Scores Comparison</h3>
-                    <div class="chart-container" style="position: relative; height: 350px;">
-                        <canvas id="comparison-risk-chart"></canvas>
-                    </div>
-                </div>
-                
-                <div class="ft-card">
-                    <h3 class="section-title">Budget Deficit Trends</h3>
-                    <div class="chart-container" style="position: relative; height: 350px;">
-                        <canvas id="comparison-deficit-chart"></canvas>
-                    </div>
-                </div>
-                
-                <div class="ft-card">
-                    <h3 class="section-title">Public Debt Levels</h3>
-                    <div class="chart-container" style="position: relative; height: 350px;">
-                        <canvas id="comparison-debt-chart"></canvas>
-                    </div>
-                </div>
-                
-                <div class="ft-card">
-                    <h3 class="section-title">Political Stability Radar</h3>
-                    <div class="chart-container" style="position: relative; height: 350px;">
-                        <canvas id="comparison-political-chart"></canvas>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ft-card">
-                <h2 class="section-title">Selected Countries Comparison Metrics</h2>
-                <div id="comparison-metrics" class="comparison-metrics-grid">
-                    <!-- Comparison metrics will be populated by JavaScript -->
+                <h2 class="section-title">Risk Factor Analysis</h2>
+                <div class="chart-container" style="position: relative; height: 300px;">
+                    <canvas id="risk-factors-chart"></canvas>
                 </div>
             </div>
         </div>
 
-        <!-- Pattern Framework -->
+        <!-- Pattern Recognition -->
         <div id="pattern-view" class="view-section">
             <div class="ft-card">
                 <h2 class="section-title">Crisis Pattern Framework</h2>
@@ -243,8 +240,34 @@
             
             <div class="ft-card">
                 <h2 class="section-title">Comparative Risk Levels</h2>
-                <div class="chart-container" style="position: relative; height: 300px;">
+                <div class="chart-container" style="position: relative; height: 400px;">
                     <canvas id="warning-chart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparative Analysis -->
+        <div id="comparative-view" class="view-section">
+            <div class="ft-card">
+                <h2 class="section-title">Multi-Country Risk Comparison</h2>
+                <div class="chart-container" style="position: relative; height: 450px;">
+                    <canvas id="comparative-chart"></canvas>
+                </div>
+            </div>
+            
+            <div class="dashboard-grid">
+                <div class="ft-card">
+                    <h2 class="section-title">Category Rankings</h2>
+                    <div id="category-rankings" class="rankings-grid">
+                        <!-- Rankings will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="ft-card">
+                    <h2 class="section-title">Regional Analysis</h2>
+                    <div class="chart-container" style="position: relative; height: 300px;">
+                        <canvas id="regional-chart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
@@ -254,28 +277,18 @@
     <footer class="ft-footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h4>Data Sources</h4>
-                <ul>
-                    <li>International Monetary Fund (IMF)</li>
-                    <li>World Bank</li>
-                    <li>Organisation for Economic Co-operation and Development (OECD)</li>
-                    <li>European Central Bank (ECB)</li>
-                    <li>Federal Reserve</li>
-                    <li>National Statistical Offices</li>
-                </ul>
+                <h4>Data Sources & Methodology</h4>
+                <p>Economic data sourced from IMF, OECD, national statistical offices. Risk assessment based on fiscal sustainability models and political stability indices.</p>
             </div>
             <div class="footer-section">
-                <h4>Methodology</h4>
-                <p>Crisis indicators based on established early warning frameworks combining fiscal, political, and structural factors. Risk scores calculated using weighted composite indices.</p>
+                <h4>Professional Disclaimer</h4>
+                <p>This analysis is for informational purposes only and should not be considered as financial or investment advice. Economic conditions are subject to rapid change.</p>
             </div>
             <div class="footer-section">
-                <h4>Attribution</h4>
-                <p><strong>Analysis compiled by William Mbiena</strong></p>
-                <p class="disclaimer">For analytical purposes only. This analysis is intended for research and educational use.</p>
+                <h4>About</h4>
+                <p>Developed by <strong>William Mbiena</strong> - Advanced Economic Risk Analysis Framework</p>
+                <p class="footer-date">Last updated: September 2024</p>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Economic Crisis Pattern Analyzer. All rights reserved.</p>
         </div>
     </footer>
 
