@@ -21,6 +21,7 @@
                 <button class="filter-btn active" data-category="all">All Countries</button>
                 <button class="filter-btn" data-category="G7">G7</button>
                 <button class="filter-btn" data-category="BRICS">BRICS</button>
+                <button class="filter-btn" data-category="BRICS Partner">BRICS Partners</button>
                 <button class="filter-btn" data-category="High Income">High Income</button>
                 <button class="filter-btn" data-category="Upper Middle Income">Upper Middle</button>
                 <button class="filter-btn" data-category="Lower Middle Income">Lower Middle</button>
@@ -32,7 +33,7 @@
             <div class="country-selector">
                 <label for="country-search" class="country-label">Search & Select Country:</label>
                 <div class="search-dropdown">
-                    <input type="text" id="country-search" class="country-search" placeholder="Type to search countries (e.g., Nigeria, Cameroon, Mexico)..." autocomplete="off">
+                    <input type="text" id="country-search" class="country-search" placeholder="Type to search countries (e.g., Nigeria, USA, France)..." autocomplete="off">
                     <div id="country-dropdown" class="country-dropdown-list hidden">
                         <!-- Countries will be populated by JavaScript -->
                     </div>
@@ -50,7 +51,6 @@
                 <button class="nav-btn" data-view="risk">Risk Assessment</button>
                 <button class="nav-btn" data-view="pattern">Pattern Framework</button>
                 <button class="nav-btn" data-view="warning">Early Warning System</button>
-                <button class="nav-btn" data-view="comparison">Multi-Country Comparison</button>
             </nav>
         </header>
 
@@ -88,11 +88,11 @@
                 </div>
             </div>
 
-            <!-- Crisis Events Timeline -->
+            <!-- Crisis Events -->
             <div class="ft-card">
                 <h2 class="section-title">Crisis Events Timeline</h2>
-                <div id="crisis-events-timeline" class="crisis-timeline">
-                    <!-- Timeline will be populated by JavaScript -->
+                <div id="crisis-events" class="events-timeline">
+                    <!-- Events will be populated by JavaScript -->
                 </div>
             </div>
         </div>
@@ -195,46 +195,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Multi-Country Comparison -->
-        <div id="comparison-view" class="view-section">
-            <div class="ft-card">
-                <h2 class="section-title">Select Countries for Comparison (Max 6)</h2>
-                <div class="country-selection-grid" id="country-selection-grid">
-                    <!-- Country checkboxes will be populated by JavaScript -->
-                </div>
-            </div>
-            
-            <div class="comparison-charts">
-                <div class="ft-card">
-                    <h2 class="section-title">Risk Score Comparison</h2>
-                    <div class="chart-container" style="position: relative; height: 300px;">
-                        <canvas id="comparison-risk-chart"></canvas>
-                    </div>
-                </div>
-                
-                <div class="ft-card">
-                    <h2 class="section-title">Deficit Trends (2019-2024)</h2>
-                    <div class="chart-container" style="position: relative; height: 350px;">
-                        <canvas id="comparison-deficit-chart"></canvas>
-                    </div>
-                </div>
-                
-                <div class="ft-card">
-                    <h2 class="section-title">Debt Levels (2019-2024)</h2>
-                    <div class="chart-container" style="position: relative; height: 350px;">
-                        <canvas id="comparison-debt-chart"></canvas>
-                    </div>
-                </div>
-                
-                <div class="ft-card">
-                    <h2 class="section-title">Political Stability Comparison</h2>
-                    <div class="chart-container" style="position: relative; height: 400px;">
-                        <canvas id="comparison-political-chart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- Footer -->
@@ -258,7 +218,7 @@
             <div class="footer-section">
                 <h4>Attribution</h4>
                 <p><strong>Analysis compiled by William Mbiena</strong></p>
-                <p><strong>Date: September 2025</strong></p>
+                <p><em>September 2025</em></p>
                 <p class="disclaimer">For analytical purposes only. This analysis is intended for research and educational use.</p>
             </div>
         </div>
